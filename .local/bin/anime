@@ -1,0 +1,6 @@
+#!/bin/env bash
+
+anime_name="$(dmenu -m 0 -p 'Seach anime: ' < /dev/null)"
+if [ ! -z "$anime_name" -a "$anime_name" != " " ]; then
+	ani-cli --dmenu $anime_name
+fi

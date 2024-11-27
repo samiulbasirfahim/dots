@@ -1,0 +1,16 @@
+#!/bin/env bash
+
+if [ -f "$1" ]; then
+    xwallpaper --zoom "$1" &
+    betterlockscreen -u "$1" --fx blur &
+    echo "$1" >~/.local/share/default_wallpaper &
+    wal -nqti "$1" --backend haishoku && ~/.local/bin/reload
+else
+    wp="$(find $HOME/pix/wallpapers -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.JPG" | nsxiv -tio -N 'wallpaper-menu' -g '1440x740' | sed 's/^\(.*\)$/"\1"/' | xargs -r -n 1)"
+    if [ -f "$wp" ]; then
+        xwallpaper --zoom "$wp" &
+        betterlockscreen -u "$wp" --fx blur &
+        echo "$wp" >~/.local/share/default_wallpaper &
+        wal -nqti "$wp" --backend haishoku && ~/.local/bin/reload
+    fi
+fi

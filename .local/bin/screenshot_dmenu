@@ -1,0 +1,16 @@
+#!/bin/env bash
+
+SCSH_FORMAT="$(date +%Y-%m-%d_%T).png"
+SCSH_DIR="$HOME/pix/screenshots/"
+
+mkdir -p $SCSH_DIR
+
+CAP_OPTS=" screen\n󱂬 window\n󰋃 selection"
+
+SCHSH_CAP=$(echo -e $CAP_OPTS | dmenu -c -m 0)
+[[ -z $SCHSH_CAP ]] && echo "screenshot aborted" && exit 0
+
+
+[[ $SCHSH_CAP == " screen" ]] && maim $SCSH_DIR/$SCSH_FORMAT && notify-send "ScreenShot" "Screen saved to $SCSH_DIR"
+[[ $SCHSH_CAP == "󱂬 window" ]] && maim -i $(xdotool getactivewindow) $SCSH_DIR/$SCSH_FORMAT && notify-send "ScreenShot" "Current window to $SCSH_DIR"
+[[ $SCHSH_CAP == "󰋃 selection" ]] && maim -s $SCSH_DIR/$SCSH_FORMAT && notify-send "ScreenShot" "Selected area saved to $SCSH_DIR"

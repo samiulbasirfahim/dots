@@ -1,0 +1,8 @@
+#!/bin/bash
+path="$HOME/.config/Vencord/themes/"
+config="$HOME/.local/share/pywal-discord"
+themefile=$config/tui.css
+
+newfile=$path/pywal-discord-theme.css
+
+cat "$themefile" "$HOME/.cache/wal/discord.css" > "$newfile" 

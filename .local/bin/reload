@@ -1,0 +1,14 @@
+#!/bin/env bash
+
+ln -sf ~/.cache/wal/colors.Xresources ~/.Xresources &
+ln -sf ~/.cache/wal/wired ~/.config/wired/wired.ron &
+
+xrdb load ~/.Xresources
+xdotool key Super+F5 &
+
+pkill dwmblocks
+setsid dwmblocks &
+
+pywal-discord &
+# pywalfox update &
+# spicetify apply &

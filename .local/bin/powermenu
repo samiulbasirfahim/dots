@@ -1,0 +1,9 @@
+#!/bin/env bash
+    
+case "$(echo -e "Shutdown\nRestart\nLock\nSuspend\nLogout" | dmenu -c -l 5 -m 0)" in
+        Shutdown) exec loginctl poweroff;;
+        Restart) exec loginctl reboot;;
+        Logout) exec loginctl kill-session self;;
+        Suspend) exec loginctl suspend;;
+        Lock) exec betterlockscreen -l blur;;
+esac

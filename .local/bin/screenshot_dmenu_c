@@ -1,0 +1,16 @@
+#!/bin/env bash
+
+SCSH_FORMAT="$(date +%Y-%m-%d_%T).png"
+SCSH_DIR="$HOME/pix/screenshots/"
+
+mkdir -p $SCSH_DIR
+
+CAP_OPTS=" screen\n󱂬 window\n󰋃 selection"
+
+SCHSH_CAP=$(echo -e $CAP_OPTS | dmenu -c -m 0)
+[[ -z $SCHSH_CAP ]] && echo "screenshot aborted" && exit 0
+
+
+[[ $SCHSH_CAP == " screen" ]] &&  maim | xclip -selection clipboard -t image/png && notify-send "ScreenShot" "Screen copied to clipboard"
+[[ $SCHSH_CAP == "󱂬 window" ]] && maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png && notify-send "ScreenShot" "Current window copied to clipboard"
+[[ $SCHSH_CAP == "󰋃 selection" ]] && maim -s | xclip -selection clipboard -t image/png && notify-send "ScreenShot" "Selected area copied to clipboard"
