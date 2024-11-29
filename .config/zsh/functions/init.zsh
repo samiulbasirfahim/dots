@@ -22,34 +22,21 @@ function ff() {
 }
 
 function vid() {
+    files="$(fd --type=directory --type=file --regex ".mp4|.mkv|.webm")"
     if [ $# -eq 0 ]
     then
-        filename="$(fd --type=directory --type=file --regex ".mp4|.mkv|.webm" | fzf --layout=reverse)"
-        if [[ -f "$filename" ]]
-        then
-            mpv $filename && vid
-        fi
+        files="$(echo "$files"  | fzf --layout=reverse -i)"
+        [[ -f "$files" ]] && mpv $files && vid
     else
-        if [[ -f "$1" ]]
+        files="$(echo "$files" | grep -i $1)"
+        if [[ "$(echo $files | wc -l)" -gt 1 ]]
         then
-            mpv "$1" && vid
-        else 
-            results="$(fd --type=directory --type=file --regex ".mp4|.mkv|.webm" | grep --color=always -i $1)"
-            count="$(echo $results | wc -l)"
-            if [[ $count -gt 1 ]]
-            then
-                mpv "$(echo $results | fzf --layout=reverse)" && vid
-             else 
-                 if [[ -f "$results" ]]
-                 then
-                    mpv $results && vid
-                else
-                    echo "No results for $1"
-                 fi
-            fi
-        fi
+            files="$(echo $files | fzf --layout=reverse -i)"
+            [[ -f "$files" ]] && mpv $files && vid 
+        else
+            [[ -f "$files" ]] && mpv $files && vid 
+        fi 
     fi
-
 }
 
 
