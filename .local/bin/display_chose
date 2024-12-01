@@ -1,0 +1,12 @@
+#!/bin/env bash
+
+CHOSEN=$(echo -e "Single\nDual" | dmenu -c -m 0)
+
+if [[ "$CHOSEN" == "Dual" ]]; then
+    echo "xrandr --output HDMI-A-0 --primary --mode 1920x1080 --rate 100 --set TearFree on --pos 0x369 --rotate normal --output DisplayPort-0 --mode 1920x1080 --pos 1920x0 --rotate right --output HDMI-A-1 --off --output HDMI-A-2 --off && sleep 1 && load-wallpaper &" >~/.local/bin/display_exec
+else
+    echo "xrandr --output HDMI-A-0 --primary --mode 1920x1080 --rate 100 --set TearFree on --pos 0x0 --rotate normal --output DisplayPort-0 --off --output HDMI-A-1 --off --output HDMI-A-2 --off && sleep 1 && load-wallpaper &" >~/.local/bin/display_exec
+fi
+
+
+bash ~/.local/bin/display_exec

@@ -2,6 +2,7 @@ bindkey -v
 
 bindkey '^r' buffer-fzf-history
 bindkey '^l' clear-screen
+bindkey '^[[Z' reverse-menu-complete
 
 bindkey '^O' zoxide_cd
 

@@ -1,5 +1,6 @@
 #!/bin/env bash
 
 wp="$(cat ~/.local/share/default_wallpaper)"
-xwallpaper --zoom "$wp"
+xwallpaper --output HDMI-A-0 --zoom "$wp" &
+xwallpaper --output DisplayPort-0 --stretch "$wp" &
 wal -n -i "$wp" --backend haishoku && ~/.local/bin/reload

@@ -69,16 +69,6 @@ function zoxide_cd () {
     zle reset-prompt
 }
 
-function v () {
-    if [ -d "$1" ]; then
-        current="$(pwd)"
-        cd "$1"
-        /usr/bin/nvim && cd "$current"
-    else 
-        /usr/bin/nvim "$1"
-    fi
-}
-
 zle -N slash-backward-kill-word
 zle -N buffer-fzf-history
 zle -N zoxide_cd
