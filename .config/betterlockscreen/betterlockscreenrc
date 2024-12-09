@@ -1,4 +1,3 @@
-
 insidecolor=00000000
 ringcolor=ffffffff
 keyhlcolor=d23c3dff
@@ -12,4 +11,4 @@ verifcolor=ffffffff
 timecolor=ffffffff
 datecolor=ffffffff
 loginbox=00000066
-font="IosevkaTermSlab Nerd Font"
+font="Iosevka"

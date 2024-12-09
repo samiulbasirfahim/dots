@@ -25,8 +25,8 @@ c.statusbar.padding = {'top': 6, 'right': 8, 'bottom': 6, 'left': 8}
 c.editor.command = ['st', '-c', 'neovim', '-e', 'nvim', '{}']
 c.messages.timeout = 3000
 
-c.fonts.default_family = 'IosevkaTermSlab Nerd Font'
-c.fonts.prompts = '14pt IosevkaTermSlab Nerd Font'
+c.fonts.default_family = 'Iosevka'
+c.fonts.prompts = '14pt Iosevka'
 c.fonts.default_size = '14pt'
 
 config.source('qutewall.py')

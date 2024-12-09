@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 if [ -f "$1" ]; then
-    xwallpaper --output HDMI-A-0 --zoom "$1" &
+    xwallpaper --zoom "$1" &
     xwallpaper --output  DisplayPort-0 --stretch "$1" &
     betterlockscreen -u "$1" --fx blur &
     echo "$1" >~/.local/share/default_wallpaper &
@@ -9,7 +9,7 @@ if [ -f "$1" ]; then
 else
     wp="$(find $HOME/pix/wallpapers -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.JPG" | nsxiv -tio -N 'wallpaper-menu' -g '1440x740' | sed 's/^\(.*\)$/"\1"/' | xargs -r -n 1)"
     if [ -f "$wp" ]; then
-        xwallpaper --output HDMI-A-0 --zoom "$wp" &
+        xwallpaper --zoom "$wp" &
         xwallpaper --output  DisplayPort-0 --stretch "$wp" &
         betterlockscreen -u "$wp" --fx blur &
         echo "$wp" >~/.local/share/default_wallpaper &

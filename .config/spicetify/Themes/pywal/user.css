@@ -9,8 +9,8 @@
 
 /* user settings */
 :root {
-    --font-family: "IosevkaTermSlab Nerd Font";
-    --font-size: 14px;
+    --font-family: "Iosevka";
+    --font-size: 15px;
     --font-weight: 400; /* 200 : 900 */
     --line-height: 1.2;
 
@@ -797,7 +797,6 @@ button[data-testid="control-button-shuffle"]::after,
 }
 .main-skipBackButton-button::before,
 button[data-testid="control-button-skip-back"]::after {
-   font-size: 25px !important;
     content: "\25C1";
 }
 
@@ -813,7 +812,6 @@ button[data-testid="control-button-playpause"]:has(
         path[d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"]
     )::after {
     content: "\25B6";
-    font-size: 25px !important;
 }
 .main-playPauseButton-button[aria-label="Pause"]::before,
 .main-playPauseButton-button:has(
@@ -826,7 +824,6 @@ button[data-testid="control-button-playpause"]:has(
         path[d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"]
     )::after {
     content: "\275A\275A";
-    font-size: 20px !important;
     text-wrap: nowrap;
 }
 button[data-testid="control-button-playpause"] {
@@ -841,7 +838,6 @@ button[data-testid="control-button-playpause"] .ButtonInner-small-iconOnly {
 .main-skipForwardButton-button::before,
 button[data-testid="control-button-skip-forward"]::after {
     content: "\25B7";
-   font-size: 25px !important;
 
 }
 .main-repeatButton-button::before,
